@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Real estate{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row border-bottom">
+                <div class="mt-5 mb-2">
+                    <h3 class="display-6">{% trans %}Contact{% endtrans%}</h3>
+                </div>
+                <div class="my-4 display-6 fs-5">
+                    <div class="row">
+                        <p class="card-text display-6 fs-5">Prénom : {{ data.firstname }}</p>
+                        <p class="card-text display-6 fs-5">Nom : {{ data.lastname }}</p>
+                        <p class="card-text display-6 fs-5">Email : {{ data.mail }}</p>
+                        <p class="card-text display-6 fs-5">Téléphone : {{ data.phone }}</p></div>
+                        <p class="card-text display-6 fs-5 mt-5">Message : {{ data.message }}</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

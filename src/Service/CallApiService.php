@@ -13,7 +13,7 @@ class CallApiService
         $this->client = $client;
     }
 
-    public function getProperties(): array
+    public function getContacts(): array
     {
         $response = $this->client->request(
             'GET',
