@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Real estate{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="container">
+            <div class="text-center my-5">
+                <h1 class="display-5">{{ data.name|upper }}</h1>
+            </div>
+            <div class="row border-bottom">
+                <div>
+                    <div>
+                        <p class="text-center display-2">{{ data.price|number_format(0, '.', ' ') }}€</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-5">
+                <h3 class="display-6">{% trans %}Description{% endtrans%}</h3>
+            </div>
+            <div class="row border-bottom text-end">
+                <div>
+                    <p>
+                        {{ data.description|raw }}
+                    </p>
+                </div>
+            </div>
+            <div class="row border-bottom">
+                <div class="my-5">
+                    <h3 class="display-6">{% trans %}Parts{% endtrans%}</h3>
+                </div>
+                <div class="mb-4 display-6 fs-5 text-end">
+                    <div class="row">
+                        <div class="col-12">Rooms : {{ data.totalRooms }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row border-bottom">
+                <div class="mt-5 mb-2">
+                    <h3 class="display-6">{% trans %}Contact{% endtrans%}</h3>
+                </div>
+                <div class="mb-4 display-6 fs-5 text-end">
+                    <div class="row">
+                        <p class="card-text display-6 fs-5">{% trans %}Seller{% endtrans%} : {% if data.nameContact %} {{ data.nameContact }} {% else %}Hidden{% endif %}</p>
+                        <p class="card-text display-6 fs-5">{% trans %}Phone{% endtrans%} : {% if data.phoneContact %}{{ data.dialCode }} {{ data.phoneContact }}{% else %}Hidden{% endif %}</p>
+                        <p class="card-text display-6 fs-5">{% trans %}Website{% endtrans%} : <a href="https://adriaticante.com/real-estate/{{ data.slug }}" target="_blank" class="text-secondary" style="text-decoration: none">{{ data.user.username }}</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="my-5">
+                <h3 class="display-6">{% trans %}More properties ?{% endtrans%}</h3>
+            </div>
+            <div class="my-5 text-end">
+                <button class="btn btn-secondary rounded-0 me-2 text-uppercase shadow-none" value = "Back"  onclick = "history.back()">{% trans %}Back{% endtrans%}</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

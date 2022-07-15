@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}API BATIACTU{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+        <h1 class="display-6 text-center">LISTE DEMANDES CONTACT</h1>
+        <div class="row">
+        {% for data in datas %}
+                <div
+                        class="col-6 col-md-4 col-xl-3 my-4"
+                >
+                        <div class="card rounded-3 shadow border-0 bg-secondary">
+                                <div class="card-body">
+                                        <h2
+                                                class="card-title text-center fs-6 display-6 fw-normal mb-4 text-uppercase text-white"
+                                        >
+                                                {{ data.firstname }} {{ data.lastname }}
+                                        </h2>
+                                        <div class="py-3 border-top text-center pt-4">
+                                                <button class="btn bg-white rounded-0">En savoir plus</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        {% endfor %}
+        </div>
+</div>
+{% endblock %}
