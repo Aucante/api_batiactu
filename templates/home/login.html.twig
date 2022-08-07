@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Real estate{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form action="" method="post">
+            {{ dump(data) }}
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" autocomplete="username" required autofocus>
+            <label for="inputPassword">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            <button class="btn btn-lg btn-primary mt-4 text-white" type="submit">
+                Sign in
+            </button>
+        </form>
+    </div>
+{% endblock %}

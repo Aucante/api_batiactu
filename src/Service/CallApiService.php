@@ -2,7 +2,9 @@
 
 namespace App\Service;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use const Grpc\STATUS_UNAUTHENTICATED;
 
 class CallApiService
 {
@@ -29,6 +31,25 @@ class CallApiService
             'GET',
             'http://localhost:3000/api/contact/' . $id
         );
+
+        return $response->toArray();
+    }
+
+
+    public function getLogin($username, $password)
+    {
+        $response = $this->client->request(
+            'POST',
+            'http://localhost:3000/api/login',
+            ['json' => [
+                'username' => $username,
+                'password' => $password,
+            ]]
+        );
+
+        if ($response->getStatusCode() === Response::HTTP_UNAUTHORIZED) {
+           return Response::HTTP_UNAUTHORIZED;
+        }
 
         return $response->toArray();
     }
